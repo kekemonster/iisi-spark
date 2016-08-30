@@ -37,12 +37,12 @@ hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar wordcount 
 spark-submit \
   --class demo.WordCount \
   --master local[*] \
-  /home/spark-wordcount.jar hdfs://spark-node1:9000/user/hadoop/vbig.txt hdfs://spark-node1:9000/user/hadoop/out
+  spark-demo_2.10-0.0.1.jar hdfs://spark-node1:9000/user/hadoop/vbig.txt hdfs://spark-node1:9000/user/hadoop/out
 #spark-standalone
 spark-submit \
   --class demo.WordCount \
   --master spark://spark-node1:7077 \
-  /home/spark-wordcount.jar hdfs://spark-node1:9000/user/hadoop/vbig.txt hdfs://spark-node1:9000/user/hadoop/out
+  spark-demo_2.10-0.0.1.jar hdfs://spark-node1:9000/user/hadoop/vbig.txt hdfs://spark-node1:9000/user/hadoop/out
 #spark-yarn
 spark-submit \
   --class demo.WordCount \
@@ -52,5 +52,5 @@ spark-submit \
   --executor-memory 1g \
   --num-executors 2 \
   --executor-cores 4 \
-  /home/spark-wordcount.jar hdfs://spark-node1:9000/user/hadoop/vbig.txt hdfs://spark-node1:9000/user/hadoop/out
+  spark-demo_2.10-0.0.1.jar hdfs://spark-node1:9000/user/hadoop/vbig.txt hdfs://spark-node1:9000/user/hadoop/out
 ```
