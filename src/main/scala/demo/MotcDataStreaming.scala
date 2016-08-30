@@ -4,14 +4,21 @@ import org.apache.spark.SparkConf
 import org.apache.spark.streaming.StreamingContext
 import org.apache.spark.streaming.Seconds
 import org.apache.spark.storage.StorageLevel
+import org.apache.log4j.Logger
+import org.apache.log4j.Level
 
 object MotcDataStreaming {
   
   def main(args: Array[String]) {
+    Logger.getRootLogger.setLevel(Level.WARN)
+    
+    val host = args(0)
+    val port = args(1).toInt
     val conf = new SparkConf()
     val ssc = new StreamingContext(conf, Seconds(10));
     
-    val lines = ssc.socketTextStream("localhost", 9999, StorageLevel.MEMORY_ONLY)
+    //nc -lk 9999
+    val lines = ssc.socketTextStream(host, port, StorageLevel.MEMORY_ONLY)
     lines
       .map(x => parse(x))
       .filter(x => x.status == 0 && x.errTp.equals("diag0"))
@@ -20,7 +27,6 @@ object MotcDataStreaming {
       .map(mapOutput)
       .print()
     
-    //nc -lk 9999
     ssc.start()
     ssc.awaitTermination()
   }
