@@ -5,4 +5,12 @@
         <name>mapreduce.framework.name</name>
         <value>yarn</value>
     </property>
+    <property>
+        <name>yarn.app.mapreduce.am.resource.mb</name>
+        <value>256</value>
+    </property>
+    <property>
+        <name>mapreduce.job.jvm.numtasks</name>
+        <value>-1</value>
+    </property>
 </configuration>

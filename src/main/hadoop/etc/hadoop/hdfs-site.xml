@@ -11,14 +11,14 @@
     </property>
     <property>
         <name>dfs.namenode.name.dir</name>
-        <value>${user.home}/dfs/name</value>
+        <value>${user.home}/dfs/nn</value>
     </property>
     <property>
         <name>dfs.namenode.checkpoint.dir</name>
-        <value>${user.home}/dfs/namesecondary</value>
+        <value>${user.home}/dfs/snn</value>
     </property>
     <property>
         <name>dfs.datanode.data.dir</name>
-        <value>${user.home}/dfs/data</value>
+        <value>${user.home}/dfs/dn</value>
     </property>
 </configuration>
